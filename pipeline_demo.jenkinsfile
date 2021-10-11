@@ -41,7 +41,7 @@ pipeline {
     
     post {
       success {
-          echo "dev successful, ${params.actor}"
+          echo "${BRANCH_NAME} successful, ${params.actor}"
       }
       unsuccessful {
           echo "${env.BUILD_TAG} is not successful, see ${env.BUILD_URL} for detail"
