@@ -25,7 +25,7 @@ pipeline {
           echo 'successful'
       }
       unsuccessful {
-          echo '${env.BUILD_TAG} is not successful, see ${env.BUILD_URL} for detail'
+          echo "${env.BUILD_TAG} is not successful, see ${env.BUILD_URL} for detail"
       }
     }
 }
