@@ -12,14 +12,22 @@ pipeline {
             }
         }
         stage('Test') {
-            parallel windows: {
-                steps {
-                    echo 'Testing windows'
-                }
-            },
-            linux: {
-                steps {
-                    echo 'Testing linux'
+            parallel {
+                stage('Test windows') {
+                    agent {
+                        label "windows"
+                    }
+                    steps {
+                        echo 'Testing windows'
+                    }
+                }                
+                stage('Test linux') {
+                     agent {
+                        label "linux"
+                    }
+                    steps {
+                        echo 'Testing linux'
+                    }
                 }
             }
         }
