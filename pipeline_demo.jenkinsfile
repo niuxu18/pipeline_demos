@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'actor', defaultValue: 'lili', description: 'what is your name ?')
+    }
+   
     stages {
         stage('Build') {
             steps {
@@ -22,7 +26,7 @@ pipeline {
     
     post {
       success {
-          echo 'successful'
+          echo "successful, ${params.actor}"
       }
       unsuccessful {
           echo "${env.BUILD_TAG} is not successful, see ${env.BUILD_URL} for detail"
