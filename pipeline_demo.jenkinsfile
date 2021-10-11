@@ -14,17 +14,13 @@ pipeline {
         stage('Test') {
             parallel {
                 stage('Test windows') {
-                    agent {
-                        label "windows"
-                    }
+                    agent any
                     steps {
                         echo 'Testing windows'
                     }
                 }                
                 stage('Test linux') {
-                     agent {
-                        label "linux"
-                    }
+                    agent any
                     steps {
                         echo 'Testing linux'
                     }
