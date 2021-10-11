@@ -16,7 +16,7 @@ pipeline {
                 steps {
                     echo 'Testing windows'
                 }
-            }, 
+            },
             linux: {
                 steps {
                     echo 'Testing linux'
