@@ -13,9 +13,18 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                parallel windows: {
+                    steps {
+                        echo 'Testing windows'
+                    }
+                }, 
+                linux: {
+                    steps {
+                        echo 'Testing linux'
+                    }
+                }
                 input 'should do real deployment ?'
-            }
+           }
         }
         stage('Deploy') {
             steps {
